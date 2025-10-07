@@ -12,9 +12,13 @@ React + Express + Postgres demo showcasing how to query, aggregate, and visualiz
 pnpm db:up
 ```
 
-## 3️⃣ Run both server + client with live-reload
+## 2️⃣ Install dependencies 
 ```bash
 pnpm i
+```
+
+## 3️⃣ Run both server + client with live-reload
+```bash
 pnpm dev
 ```
 - Frontend: http://localhost:5000
