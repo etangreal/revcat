@@ -14,6 +14,7 @@ pnpm db:up
 
 ## 3️⃣ Run both server + client with live-reload
 ```bash
+pnpm i
 pnpm dev
 ```
 - Frontend: http://localhost:5000
