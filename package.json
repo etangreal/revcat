@@ -16,10 +16,10 @@
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:run": "vitest run",
-    "db:up": "docker-compose up postgres -d",
+    "db:up": "docker-compose up -d postgres",
     "db:down": "docker-compose down",
     "db:logs": "docker-compose logs postgres -f",
-    "db:reset": "docker-compose down -v && docker-compose up postgres -d",
+    "db:reset": "docker-compose down -v && docker-compose up -d postgres",
     "db:init": "psql postgresql://postgres:postgres@localhost:5432/revcat -f server/create.pgsql"
   },
   "dependencies": {
@@ -58,6 +58,10 @@
   "pnpm": {
     "overrides": {
       "vite": "npm:rolldown-vite@7.1.12"
-    }
+    },
+    "ignoredBuiltDependencies": [
+      "@swc/core",
+      "esbuild"
+    ]
   }
 }
