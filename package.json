@@ -1,0 +1,63 @@
+{
+  "name": "revcat",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"pnpm node\" \"pnpm vite\"",
+    "node": "tsx --tsconfig tsconfig.server.json --watch server",
+    "vite": "vite",
+    "build": "tsc -b && vite build",
+    "typecheck:frontend": "tsc --noEmit",
+    "typecheck:server": "tsc --project tsconfig.server.json --noEmit",
+    "typecheck": "pnpm typecheck:frontend && pnpm typecheck:server",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:run": "vitest run",
+    "db:up": "docker-compose up postgres -d",
+    "db:down": "docker-compose down",
+    "db:logs": "docker-compose logs postgres -f",
+    "db:reset": "docker-compose down -v && docker-compose up postgres -d",
+    "db:init": "psql postgresql://postgres:postgres@localhost:5432/revcat -f server/create.pgsql"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "pg": "^8.16.3",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "recharts": "^3.2.1",
+    "tsx": "^4.20.6",
+    "zod": "^4.1.11"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.36.0",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.6.0",
+    "@types/pg": "^8.15.5",
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^5.0.4",
+    "@vitejs/plugin-react-swc": "^4.1.0",
+    "@vitest/ui": "^3.2.4",
+    "concurrently": "^9.2.1",
+    "eslint": "^9.36.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.4.0",
+    "jsdom": "^27.0.0",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.44.0",
+    "vite": "npm:rolldown-vite@7.1.12",
+    "vitest": "^3.2.4"
+  },
+  "pnpm": {
+    "overrides": {
+      "vite": "npm:rolldown-vite@7.1.12"
+    }
+  }
+}
