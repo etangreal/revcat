@@ -12,11 +12,6 @@ React + Express + Postgres demo showcasing how to query, aggregate, and visualiz
 pnpm db:up
 ```
 
-## 2️⃣ Create schema and seed data
-```bash
-pnpm db:init  # runs create.pgsql
-```
-
 ## 3️⃣ Run both server + client with live-reload
 ```bash
 pnpm dev
